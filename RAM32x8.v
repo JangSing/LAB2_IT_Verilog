@@ -7,7 +7,7 @@ module RAM32x8(
   
   reg [7:0]Mem[31:0];
   
-  always@(posedge Clock,posedge Reset)
+  always@(posedge Clock)
    begin 
     if(MemWr)
       Mem[Address] <= D;

@@ -10,15 +10,16 @@ Input[6] => Input[6]~1.IN1
 Input[7] => Input[7]~0.IN1
 Clock => Clock~0.IN2
 Reset => Reset~0.IN2
+programEn => programEn~0.IN1
 Halt <= Halt~0.DB_MAX_OUTPUT_PORT_TYPE
-Output[0] <= DP:dp1.port14
-Output[1] <= DP:dp1.port14
-Output[2] <= DP:dp1.port14
-Output[3] <= DP:dp1.port14
-Output[4] <= DP:dp1.port14
-Output[5] <= DP:dp1.port14
-Output[6] <= DP:dp1.port14
-Output[7] <= DP:dp1.port14
+Output[0] <= DP:dp1.port15
+Output[1] <= DP:dp1.port15
+Output[2] <= DP:dp1.port15
+Output[3] <= DP:dp1.port15
+Output[4] <= DP:dp1.port15
+Output[5] <= DP:dp1.port15
+Output[6] <= DP:dp1.port15
+Output[7] <= DP:dp1.port15
 
 
 |IT|LAB2_CU:cu1
@@ -62,6 +63,7 @@ MemWr => MemWr~0.IN1
 Aload => Aload~0.IN1
 Sub => Sub~0.IN1
 Halt => ~NO_FANOUT~
+programEn => ~NO_FANOUT~
 Asel[0] => Asel[0]~1.IN1
 Asel[1] => Asel[1]~0.IN1
 Aeq0 <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE

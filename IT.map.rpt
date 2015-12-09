@@ -1,5 +1,5 @@
 Analysis & Synthesis report for IT
-Tue Dec 08 16:51:05 2015
+Wed Dec 09 10:32:54 2015
 Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
 
 
@@ -51,7 +51,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +------------------------------------+-----------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 08 16:51:04 2015   ;
+; Analysis & Synthesis Status        ; Successful - Wed Dec 09 10:32:54 2015   ;
 ; Quartus II Version                 ; 8.1 Build 163 10/28/2008 SJ Web Edition ;
 ; Revision Name                      ; IT                                      ;
 ; Top-level Entity Name              ; IT                                      ;
@@ -60,7 +60,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 54                                      ;
 ;     Dedicated logic registers      ; 32                                      ;
 ; Total registers                    ; 32                                      ;
-; Total pins                         ; 20                                      ;
+; Total pins                         ; 21                                      ;
 ; Total virtual pins                 ; 0                                       ;
 ; Total memory bits                  ; 256                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                       ;
@@ -193,12 +193,12 @@ applicable agreement for further details.
 ;     -- Dedicated logic registers            ; 32    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 20    ;
+; I/O pins                                    ; 21    ;
 ; Total memory bits                           ; 256   ;
 ; Maximum fan-out node                        ; Clock ;
 ; Maximum fan-out                             ; 40    ;
 ; Total fan-out                               ; 376   ;
-; Average fan-out                             ; 3.30  ;
+; Average fan-out                             ; 3.27  ;
 +---------------------------------------------+-------+
 
 
@@ -207,7 +207,7 @@ applicable agreement for further details.
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
-; |IT                                          ; 54 (1)            ; 32 (0)       ; 256         ; 0            ; 0       ; 0         ; 20   ; 0            ; |IT                                                                        ; work         ;
+; |IT                                          ; 54 (1)            ; 32 (0)       ; 256         ; 0            ; 0       ; 0         ; 21   ; 0            ; |IT                                                                        ; work         ;
 ;    |DP:dp1|                                  ; 35 (0)            ; 21 (0)       ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |IT|DP:dp1                                                                 ; work         ;
 ;       |Multiplexer2to1:MeminstMUX|           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IT|DP:dp1|Multiplexer2to1:MeminstMUX                                      ; work         ;
 ;       |RAM32x8:RAM|                          ; 0 (0)             ; 0 (0)        ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |IT|DP:dp1|RAM32x8:RAM                                                     ; work         ;
@@ -428,7 +428,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 8.1 Build 163 10/28/2008 SJ Web Edition
-    Info: Processing started: Tue Dec 08 16:51:02 2015
+    Info: Processing started: Wed Dec 09 10:32:52 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IT -c IT
 Info: Found 1 design units, including 1 entities, in source file LAB2_CU.v
     Info: Found entity 1: LAB2_CU
@@ -509,15 +509,17 @@ Info: 4 registers lost all their fanouts during netlist optimizations. The first
     Info: Register "LAB2_CU:cu1|state~16" lost all its fanouts during netlist optimizations.
     Info: Register "LAB2_CU:cu1|state~17" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file C:/College_Stuff/Degree_yr2_sem2/Verilog HDL/LAB2_IT/IT.map.smsg
-Info: Implemented 91 device resources after synthesis - the final resource count might be different
-    Info: Implemented 11 input pins
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "programEn"
+Info: Implemented 92 device resources after synthesis - the final resource count might be different
+    Info: Implemented 12 input pins
     Info: Implemented 9 output pins
     Info: Implemented 63 logic cells
     Info: Implemented 8 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 7 warnings
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 9 warnings
     Info: Peak virtual memory: 224 megabytes
-    Info: Processing ended: Tue Dec 08 16:51:05 2015
-    Info: Elapsed time: 00:00:03
+    Info: Processing ended: Wed Dec 09 10:32:54 2015
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

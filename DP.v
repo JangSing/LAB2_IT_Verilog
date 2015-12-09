@@ -1,7 +1,7 @@
 module DP(
    input  Reset,Clock,
    input  [7:0]Input,
-   input  IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,
+   input  IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,programEn,
    input  [1:0]Asel,
    output reg Aeq0,
    output Apos,

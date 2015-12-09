@@ -9,10 +9,10 @@ module DP(
    output [2:0]IR
    );
    
-   
    wire [7:0]Aout,AselOut,SubOut,in3;
    wire [4:0]MeminstOut,JMPout,PCout,increOut;
    wire [7:0]RAMout,IRout;
+   
    
    RAM32x8            RAM(MemWr,Clock,MeminstOut,Aout,RAMout);
    nBitsRegister #(8) Areg(Aload,Reset,Clock,AselOut,Aout);
