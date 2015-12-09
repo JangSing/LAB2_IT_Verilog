@@ -1,5 +1,5 @@
 module RAM32x8(
-  input       MemWr,Clock,
+  input       MemWr,Clock,Reset
   input       [4:0]Address,
   input       [7:0]D,
   output reg  [7:0]Q
