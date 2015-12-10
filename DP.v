@@ -6,20 +6,23 @@ module DP(
    input  [1:0]Asel,
    output reg Aeq0,
    output Apos,
-   output [7:0]Output,
-   output [2:0]IR
+   output [7:0]Output,RAMout,
+   output [2:0]IR,
+   output reg [4:0]AddrIn,
+   output reg [7:0]Din
    );
    
-   reg  [7:0]Din;
-   reg  [4:0]AddrIn;
+   reg  WE;
+   //reg  [7:0]Din;
+   //reg  [4:0]AddrIn;
    wire [7:0]Aout,AselOut,SubOut,in3;
    wire [4:0]MeminstOut,JMPout,PCout,increOut;
-   wire [7:0]RAMout,IRout;
-   
+   wire [7:0]IRout;
+   //wire [7:0]RAMout;
    wire [7:0]InputTemp;
    wire [4:0]AddrSelTemp;
    
-   RAM32x8            RAM(MemWr,Clock,AddrIn,Din,RAMout);
+   RAM32x8            RAM(WE,Clock,AddrIn,Din,RAMout);
    nBitsRegister #(8) Areg(Aload,Reset,Clock,AselOut,Aout);
    Multiplexer4to1    AselMUX(SubOut,Input,RAMout,in3,Asel,AselOut);
    SubOrAdd           SubAdd(Aout,RAMout,Sub,SubOut);
@@ -29,10 +32,10 @@ module DP(
    nBitsRegister #(8) IRreg(IRload,Reset,Clock,RAMout,IRout); 
    Increment5bit      _5bitIncrement(PCout,increOut);
    
-   nBitsRegister #(8) AddrReg(Addrload,Reset,Clock,Input,InputTemp); 
-   nBitsRegister #(5) ProgramReg(PRload,Reset,Clock,AddrSel,AddrSelTemp); 
+   nBitsRegister #(8) AddrReg(Addrload,1'b1,Clock,Input,InputTemp); 
+   nBitsRegister #(5) ProgramReg(PRload,1'b1,Clock,AddrSel,AddrSelTemp); 
    
-   always@(programEn)
+   always@(programEn,InputTemp,Aout)
     begin
       if(programEn)
         Din=InputTemp;
@@ -40,7 +43,7 @@ module DP(
         Din=Aout;
     end
    
-   always@(programEn)
+   always@(programEn,AddrSelTemp,MeminstOut)
     begin
       if(programEn)
         AddrIn=AddrSelTemp;
@@ -48,6 +51,13 @@ module DP(
         AddrIn=MeminstOut;
     end
     
+   always@(programEn,MemWr)
+    begin
+      if(programEn)
+        WE=programEn;
+      else
+        WE=MemWr;
+    end
     
    always@(Aout)
     begin
@@ -57,7 +67,7 @@ module DP(
         Aeq0=0;
     end
     
-   assign Apos=Aout[7:7];
+   assign Apos=~Aout[7:7];
    assign in3=0;
    assign Output=Aout;
    assign IR=IRout[7:5];

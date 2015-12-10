@@ -2,8 +2,10 @@ module LAB2_CU(
   input   [7:5]IR,
   input   Aeq0,Apos,Enter,Clk,Reset,
   output IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,
-  output reg [1:0]Asel
+  output reg [1:0]Asel,
+  output [3:0]outState
   );
+  
   
   reg       [7:0]AllOut;
   reg       [3:0]next_state,state;
@@ -12,15 +14,17 @@ module LAB2_CU(
   parameter SUB=4'b1011, INPUT=4'b1100, JZ=4'b1101, JPOS=4'b1110, HALT=4'b1111;
   assign {IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt}=AllOut;
   
-  always@(posedge Clk, posedge Reset)
+  assign outState=state;
+  
+  always@(posedge Clk, negedge Reset)
    begin
-    if(Reset)
+    if(!Reset)
       state<=START;
     else 
       state<=next_state;
    end 
    
-  always@(state,IR,Aeq0,Apos)
+  always@(state,IR,Aeq0,Apos,Enter)
    begin
     
     case(state)
