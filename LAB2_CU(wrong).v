@@ -1,4 +1,4 @@
-module LAB2_CU(
+module LAB2_CUwrong(
   input   [7:5]IR,
   input   Aeq0,Apos,Enter,Clk,Reset,
   output IRload,JMPmux,PCload,Meminst,MemWr,Aload,Sub,Halt,
@@ -51,7 +51,7 @@ module LAB2_CU(
           3'b001  :next_state=STORE;   
           3'b010  :next_state=ADD;   
           3'b011  :next_state=SUB;   
-          3'b100  :next_state=SUB;   
+          3'b100  :next_state=INPUT;   
           3'b101  :next_state=JZ;   
           3'b110  :next_state=JPOS;   
           3'b111  :next_state=HALT;

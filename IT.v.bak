@@ -6,7 +6,7 @@ module IT(
   output  Halt,
   output  [7:0]Output,RAMout,
   output  [4:0]AddrIn,
-  output  [7:0]Din
+  output  [7:0]Din,
   output  [3:0]outState
 );
 

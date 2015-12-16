@@ -4,7 +4,7 @@ module Multiplexer2to1(
   output reg  [4:0]out
   );
   
-  always@(in0,in1,JMPmux)
+  always@(in0,in1)
   begin
     if(JMPmux)
       out=in1;
